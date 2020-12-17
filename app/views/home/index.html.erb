@@ -1,0 +1,12 @@
+<h1> Landing Page </h1>
+
+<% if user_signed_in?%>
+
+    <%= link_to 'show my details', users_show_path(@current_user, :id=>current_user.id) %>
+    <%= link_to 'show all users', users_all_path(@current_user)%>
+    <%= link_to 'log out', destroy_user_session_path(@current_user),
+                method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+<%else%>
+    <%= link_to 'login', new_user_session_path%>
+<%end%>            

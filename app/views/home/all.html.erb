@@ -1,0 +1,10 @@
+<h1>All Users</h1>
+
+<ul>
+  <% @all_users.each do |user| %>
+    <li>
+      <%= link_to user.name,  users_show_path(:id=>user.id) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'home', root_path(@current_user)%>

@@ -1,0 +1,13 @@
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Type: <%= @user.usertype %></p>
+
+
+<% if current_user.id == @user.id %>
+    <%= link_to 'edit', users_edit_path(:id=>@user.id)%>
+<% else %>
+    <%= link_to 'edit', users_other_edit_path(:id=>@user.id)%>
+<%end%>
+
+<div><%= link_to 'home', root_path(@current_user)%></div>
+<%= link_to "Back", :back %>
